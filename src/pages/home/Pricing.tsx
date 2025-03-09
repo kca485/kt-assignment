@@ -8,7 +8,7 @@ export function Pricing() {
           <div>
             <p>
               <span className="price">Rp 1mil</span>
-              <div>/month</div>
+              /month
             </p>
             <a href="#">Get Started</a>
           </div>
@@ -23,7 +23,7 @@ export function Pricing() {
           <div>
             <p>
               <span className="price">Rp 3mil</span>
-              <div>/month</div>
+              /month
             </p>
             <a href="#">Get Started</a>
           </div>
@@ -38,7 +38,7 @@ export function Pricing() {
           <div>
             <p>
               <span className="price">Rp 10mil</span>
-              <div>/month</div>
+              /month
             </p>
             <a href="#">Get Started</a>
           </div>

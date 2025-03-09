@@ -1,4 +1,14 @@
+import { useContext } from "react";
+import { Link } from "react-router";
+import { UserContext } from "../../context/user";
+
 export function MobileMenu() {
+  const user = useContext(UserContext);
+
+  function handleLogout() {
+    location.reload();
+  }
+
   return (
     <div id="mobile-nav">
       <input type="checkbox" id="menu-toggle" />
@@ -47,7 +57,13 @@ export function MobileMenu() {
           <a href="#contact">CONTACT</a>
         </li>
         <li>
-          <a href="#login">LOGIN</a>
+          {user ? (
+            <button id="logout-btn" onClick={handleLogout}>
+              LOGOUT
+            </button>
+          ) : (
+            <Link to="/login">LOGIN</Link>
+          )}
         </li>
       </ul>
     </div>

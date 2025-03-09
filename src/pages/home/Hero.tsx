@@ -1,7 +1,16 @@
+import { Link } from "react-router";
 import { ImagePerson } from "./ImagePerson";
 import { MobileMenu } from "./MobileMenu";
+import { useContext } from "react";
+import { UserContext } from "../../context/user";
 
 export function Hero() {
+  const user = useContext(UserContext);
+
+  function handleLogout() {
+    location.reload();
+  }
+
   return (
     <section id="welcome">
       <nav id="wide-nav">
@@ -34,11 +43,18 @@ export function Hero() {
             <a href="#contact">CONTACT</a>
           </li>
           <li>
-            <a href="#login">LOGIN</a>
+            {user ? (
+              <button id="logout-btn" onClick={handleLogout}>
+                LOGOUT
+              </button>
+            ) : (
+              <Link to="/login">LOGIN</Link>
+            )}
           </li>
         </ul>
         <MobileMenu />
       </nav>
+      {user?.email ? <p id="greeting">Hi, {user.email}</p> : null}
       <header>
         <h1>Welcome to Your ERP Solution</h1>
         <p>
